@@ -1,0 +1,173 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model TrainningDotNetCore.Models.ListNewsViewModel;
+@{
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Styles{
+    <style>
+        #listUyQuyen tr {
+            height: 50px;
+        }
+
+        .k-checkbox > span {
+            border-radius: 3px;
+            background: none;
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            height: 18px;
+            width: 18px;
+        }
+
+        .ui-select-match-text {
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 40px;
+        }
+    </style>
+}
+<div id="loading"></div>
+
+<div class="container">
+    <div class="gsm-daihoi-info">
+        <div class="row d-flex justify-content-center">
+            <span class="col-12 text-center p-1 titlediv">Danh sách tin</span>
+        </div>
+
+    </div>
+    <div class="k-portlet__body">
+        <ul class="nav nav-pills nav-tabs-btn nav-pills-btn-success row" role="tablist">
+            <li class="nav-item col gsm-link-tab">
+                <a class="nav-link active show " data-toggle="tab" href="#k_tabs_1" role="tab" aria-selected="true">
+                    <span class="nav-link-title text-uppercase">Danh sách tin</span>
+                </a>
+            </li>
+            <li class="nav-item col gsm-link-tab">
+                <a class="nav-link" data-toggle="tab" href="#k_tabs_2" role="tab" aria-selected="false">
+                    <span class="nav-link-title text-uppercase">Tạo tin</span>
+                </a>
+            </li>
+        </ul>
+        <div class="line_top col-md-12">
+
+        </div>
+        <div class="tab-content">
+            @*Tab Danh Sách*@
+            <div class="tab-pane fade active show " id="k_tabs_1" role="tabpanel">
+                <div class="form-group row nopadding">
+                    <form id="IDfDSHCSearh" enctype="multipart/form-data" method="post" class="col-12 nopadding">
+                        <div class="form-group row nopadding">
+                            <div class="col-md-1" style="padding-left:0!important">
+                                <label class="col-form-label" id="lblNewNames-Search" asp-for="cNews.NewName">Tiêu đề tin</label>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="tNewNames-Search" asp-for="cNews.NewName">
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-7 nopadding">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group row">
+                    <div class="row d-flex justify-content-center col-12">
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="Search">
+                            Tìm kiếm
+                        </button>
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="DeleteAll">
+                            Hủy
+                        </button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div id="m_table_2_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                        <div class="col-sm-12 nopadding">
+                            <div>
+                                <table class="table  display cell-border row-border" id="listGrid"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Tab Nội dung*@
+            <div class="tab-pane fade boxshadow" id="k_tabs_2" role="tabpanel">
+                <div class="form-group row nopadding">
+                    <form id="IDDSHanCheBieuQuyet" enctype="multipart/form-data" method="post" class="col-12 padt20">
+                        <div class="col-md-12 d-inline-block">
+                            <div class="form-group row nopadding">
+                                <div class="col-md-2">
+                                    <label class="col-form-label" id="lblNewName" asp-for="cNews.NewName">Tiêu đề tin (*)</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="tNewName" asp-for="cNews.NewName">
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="col-form-label" asp-for="cNews.Summary">Mô tả ngắn</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="tSummary" asp-for="cNews.Summary">
+                                </div>
+                            </div>
+                            <div class="form-group row nopadding">
+                                <div class="col-md-2">
+                                    <label class="col-form-label" asp-for="cNews.ImageSource">Ảnh tin</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="col-md-2 nopadding">
+                                        <label class="k-font-bold col-form-label label-required" for="UploadFile">Upload</label>
+                                    </div>
+                                    <div class="col-md-8 nopadding">
+                                        <div class="input-group">
+                                            <div class="loaiTaiLieu">
+                                                <input type="file" class="custom-file-input" id="UploadFile" name="UploadFile">
+                                                <label class="custom-file-label" for="UploadFile" id="LinkFile">Chọn file</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label class="col-form-label" asp-for="cNews.Note">Chi tiết tin</label>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-form-label gsm-data-value" id="lblNote" asp-for="cNews.Note"></label>
+                                </div>
+                            </div>
+                            <div class="form-group row nopadding">
+                                <div class="col-md-2">
+                                    <label class="col-form-label" id="lblNoiDungID" asp-for="cNews.CatalogID">Danh mục tin</label>
+                                </div>
+                                <div class="col-md-10">
+                                    <select class="form-control" id="cboNoiDungID" asp-for="cNews.CatalogID" asp-items="@(new SelectList(Model.ListDanhMuc,"ID","CatalogName"))"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-group row">
+                    <div class="row d-flex justify-content-center col-12 padb20">
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="Insert">
+                            Lưu
+                        </button>
+                        <button type="submit" class="btn btn-primary mz-3 col-md-2 col-sm-12" id="Reset">
+                            Làm mới
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@* Popup hiển thị menu chọn danh sách cổ đông *@
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body list-codong">
+                @*@await Component.InvokeAsync("ListCoDong")*@
+            </div>
+        </div>
+    </div>
+</div>

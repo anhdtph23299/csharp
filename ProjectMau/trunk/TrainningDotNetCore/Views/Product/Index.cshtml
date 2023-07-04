@@ -1,0 +1,227 @@
+﻿
+@model TrainningDotNetCore.Models.ListProductViewModel;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <form method="post" id="ProductForm">
+        <div class="col-8">
+            <h4>Create Product</h4>
+            <hr class="bg-danger border-2 border-top border-danger mt-4" />
+            <div class="form-floating mb-3">
+                <input type="text"
+                       class="form-control thongtin rounded-4"
+                       id="txtProductName"
+                       placeholder="name" asp-for="product.ProductName" />
+                <label for="floatingInput">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text"
+                       class="form-control thongtin rounded-4"
+                       id="txtDescription"
+                       placeholder="description" asp-for="product.Description" />
+                <label for="floatingInput">Description</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text"
+                       class="form-control thongtin rounded-4"
+                       id="txtQuantity"
+                       placeholder="Quantity" asp-for="product.Quantity" />
+                <label for="floatingInput">Number in Stock</label>
+            </div>
+            <div class="form-floating mb-3">
+                <select class="form-select thongtin"
+                        id="cboIdCategory" asp-for="product.IdCategory"
+                        aria-label="Floating label select example">
+                </select>
+                @*<input  class="form-control thongtin rounded-4" id="txtIdCategory" placeholder="Category" asp-for="product.IdCategory" />*@
+                <label for="floatingSelect">Category</label>
+            </div>
+
+            <button type="button" class="btn btn-outline-secondary mb-3" id="btnSave">Save</button>
+            <button type="button" class="btn btn-outline-secondary mb-3" id="btnUpdate">Update</button>
+        </div>
+    </form>
+
+    <table class="table table-striped" id="datatable">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>  
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script>
+        var id = -1;
+        var dataTable = null; // Biến để lưu trữ đối tượng DataTable
+
+        //// Hàm để reload lại toàn bộ DataTable
+        function reloadDataTable() {
+            dataTable.destroy();
+            getAll();
+        }
+        $('#btnSave').click(function () {
+            let formData = new FormData($('form')[0]);
+            //Hiển thị ảnh loadding
+            $('#loading').addClass('loading');
+            $.ajax('@Url.Action("InsertProduct", "Product")',
+                {
+                    type: "post",
+                    processData: false,
+                    contentType: false,
+                    data: formData
+                })
+                .done(function (data) {
+                    //data.code : 0 - Không có lỗi trả về
+                    displayResponse(data) // Hiện thị popup thông báo kết quả
+                        .then(function () {
+                            // Thực hiện các hàm sau khi thông báo được đóng
+                            resetform(); // Reset Form dữ liệu
+                            reloadDataTable(); // Reload DataTable
+                        });
+                })
+                .fail(function () {
+                    showError('Có lỗi xảy ra');
+                });
+            id=-1;
+            //Xóa ảnh loading
+            $('#loading').removeClass('loading');
+            $('.nav-item a[href="#k_tabs_1"]').tab('show');
+        });
+
+        $('#btnUpdate').click(function () {
+            if(id==-1){
+                showError('Chưa chọn sản phẩm cần sửa');
+                return;
+            }
+            let formData = new FormData($('form')[0]);
+            //Hiển thị ảnh loadding
+            $('#loading').addClass('loading');
+            $.ajax('@Url.Action("UpdateProduct", "Product")'+"?Id="+id,
+                {
+                    type: "post",
+                    processData: false,
+                    contentType: false,
+                    data: formData
+                })
+                .done(function (data) {
+                    //data.code : 0 - Không có lỗi trả về
+                    displayResponse(data) // Hiện thị popup thông báo kết quả
+                        .then(function () {
+                            // Thực hiện các hàm sau khi thông báo được đóng
+                            resetform(); // Reset Form dữ liệu
+                            reloadDataTable(); // Reload DataTable
+                        });
+
+                })
+                .fail(function () {
+                    showError('Có lỗi xảy ra');
+                });
+            //Xóa ảnh loading
+            id = -1;
+            $('#loading').removeClass('loading');
+            $('.nav-item a[href="#k_tabs_1"]').tab('show');
+        });
+
+        $('#datatable').on('click', '.button-delete', function () {
+             var value = $(this).val();
+            //    //Hiển thị ảnh loadding
+                $('#loading').addClass('loading');
+                $.ajax('@Url.Action("DeleteProduct", "Product")' + "?Id=" + value)
+                    .done(function (data) {
+                        //data.code : 0 - Không có lỗi trả về
+                    displayResponse(data) // Hiện thị popup thông báo kết quả
+                        .then(function () {
+                            // Thực hiện các hàm sau khi thông báo được đóng
+                            resetform(); // Reset Form dữ liệu
+                            reloadDataTable(); // Reload DataTable
+                        });
+
+                    })
+                    .fail(function () {
+                        showError('Có lỗi xảy ra');
+                    });
+                //Xóa ảnh loading
+                $('#loading').removeClass('loading');
+                $('.nav-item a[href="#k_tabs_1"]').tab('show');
+            id = -1;
+
+            // Thực hiện các thao tác xử lý cho button 1
+        });
+        $('#datatable').on('click', '.button-detail', function () {
+            var value = $(this).val();
+            id = value;
+            //    //Hiển thị ảnh loadding
+            //$('#loading').addClass('loading');
+            $.ajax('@Url.Action("DetailProduct", "Product")' + "?Id=" + value)
+                .done(function (data) {
+                    var product = data.products[0];
+                    console.log(data)
+                    $('#txtProductName').val(product.productName);
+                    $('#txtDescription').val(product.description);
+                    $('#txtQuantity').val(product.quantity);
+                    $("#cboIdCategory").val(product.idCategory);
+                })
+                .fail(function () {
+                    showError('Có lỗi xảy ra');
+                });
+        });
+        function resetform(){
+            $('#ProductForm').trigger("reset");
+        }
+        function showSelectCategories() {
+            $.get('@Url.Action("GetAllCategory", "Product")')
+                .done(function (response) {
+                    var tableBody = $('#cboIdCategory');
+                    tableBody.empty();
+                    var html = '';
+                    var list = response.categories;
+                    for (var i = 0; i < list.length; i++) {
+                        html += `
+                                 <option value="${list[i].id}">${list[i].categoryName}</option>
+                                `;
+                    }
+                    tableBody.append(html);
+                });
+        }
+
+        function getAll(){
+            var ProductName = '';
+            $.get('@Url.Action("SearchByProductName", "Product")' + '?ProductName=' + ProductName).
+                done(function (response) {
+                    console.log(response);
+                    dataTable = $('#datatable').DataTable({
+                        data: response.products, // Dữ liệu trả về từ server
+                        columns: [
+                            { data: 'id' },
+                            { data: 'productName' },
+                            { data: 'quantity' },
+                            { data: 'description' },
+                            { data: 'categoryName' },
+                            { data: 'id',
+                              title: "Hành động",
+                                render: function (data, type, row) {
+                                    return `
+                                                    <button type="button" value="` +data+`" class="btn btn-outline-primary button-detail">Detail</button>
+                                                            <button type="button" value="` + data + `" class="btn btn-outline-primary button-delete">Delete</button>
+                                    `;
+                                },
+                            },
+
+                        ]
+                    });
+                });
+        }
+        getAll();
+        showSelectCategories();
+    </script>
+}

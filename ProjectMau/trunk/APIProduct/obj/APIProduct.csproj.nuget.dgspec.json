@@ -1,0 +1,399 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\thuctap\\C#\\ProjectMau\\trunk\\APIProduct\\APIProduct.csproj": {}
+  },
+  "projects": {
+    "D:\\thuctap\\C#\\ProjectMau\\trunk\\APIProduct\\APIProduct.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\thuctap\\C#\\ProjectMau\\trunk\\APIProduct\\APIProduct.csproj",
+        "projectName": "APIProduct",
+        "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\APIProduct\\APIProduct.csproj",
+        "packagesPath": "C:\\Users\\sktfk\\.nuget\\packages\\",
+        "outputPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\APIProduct\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sktfk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj"
+              },
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj"
+              },
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\DataServiceLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\DataServiceLib.csproj"
+              },
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\TrainningDotNetCore\\TrainningDotNetCore.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\TrainningDotNetCore\\TrainningDotNetCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj",
+        "projectName": "CommonLib",
+        "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj",
+        "packagesPath": "C:\\Users\\sktfk\\.nuget\\packages\\",
+        "outputPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sktfk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "targetAlias": "netcoreapp2.2",
+            "projectReferences": {
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
+          "dependencies": {
+            "DotNetCore.NPOI": {
+              "target": "Package",
+              "version": "[1.2.1, )"
+            },
+            "EPPlus.Core": {
+              "target": "Package",
+              "version": "[1.5.4, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Serilog": {
+              "target": "Package",
+              "version": "[2.7.1, )"
+            },
+            "Serilog.Settings.Configuration": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Serilog.Sinks.File": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj",
+        "projectName": "CoreLib",
+        "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj",
+        "packagesPath": "C:\\Users\\sktfk\\.nuget\\packages\\",
+        "outputPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sktfk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "targetAlias": "netcoreapp2.2",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[1.50.5, )"
+            },
+            "Dapper.Contrib": {
+              "target": "Package",
+              "version": "[1.50.5, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\DataServiceLib.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\DataServiceLib.csproj",
+        "projectName": "DataServiceLib",
+        "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\DataServiceLib.csproj",
+        "packagesPath": "C:\\Users\\sktfk\\.nuget\\packages\\",
+        "outputPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sktfk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "targetAlias": "netcoreapp2.2",
+            "projectReferences": {
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj"
+              },
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "targetAlias": "netcoreapp2.2",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[1.50.5, )"
+            },
+            "Dapper.Contrib": {
+              "target": "Package",
+              "version": "[1.50.5, )"
+            },
+            "Microsoft.AspNetCore.All": {
+              "target": "Package",
+              "version": "[2.0.3, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\thuctap\\C#\\ProjectMau\\trunk\\TrainningDotNetCore\\TrainningDotNetCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\thuctap\\C#\\ProjectMau\\trunk\\TrainningDotNetCore\\TrainningDotNetCore.csproj",
+        "projectName": "TrainningDotNetCore",
+        "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\TrainningDotNetCore\\TrainningDotNetCore.csproj",
+        "packagesPath": "C:\\Users\\sktfk\\.nuget\\packages\\",
+        "outputPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\TrainningDotNetCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sktfk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CommonLib\\CommonLib.csproj"
+              },
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\CoreLib\\CoreLib.csproj"
+              },
+              "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\DataServiceLib.csproj": {
+                "projectPath": "D:\\thuctap\\C#\\ProjectMau\\trunk\\DataServiceLib\\DataServiceLib.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Razor.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.VisualStudio.Web.BrowserLink": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

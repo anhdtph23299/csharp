@@ -1,0 +1,22 @@
+﻿@using CoreLib.Entities
+
+<script>
+    $(document).ajaxSend(function (event, request, settings) {
+        $('#loading-indicator').show();
+    });
+
+    $(document).ajaxComplete(function (event, request, settings) {
+        $('#loading-indicator').hide();
+    });
+</script>
+
+<img src="~/images/loading.gif" id="loading-indicator" style="display:none;" />
+<style>
+    #loading-indicator {
+        position: fixed;
+        right: 10px;
+        bottom: 0px;
+        z-index: 9999999;
+        width: 100px;
+    }
+</style>

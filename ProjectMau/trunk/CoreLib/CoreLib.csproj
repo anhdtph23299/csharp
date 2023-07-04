@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName></SccProjectName>
+    <SccProvider></SccProvider>
+    <SccAuxPath></SccAuxPath>
+    <SccLocalPath></SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.5" />
+    <PackageReference Include="Dapper.Contrib" Version="1.50.5" />
+   
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Interfaces\INewsDataProvider.cs" />
+    <Compile Remove="Interfaces\IUserDataProvider.cs" />
+    <Compile Remove="SharedKernel\CBaseDataProvider.cs" />
+  </ItemGroup>
+
+</Project>
